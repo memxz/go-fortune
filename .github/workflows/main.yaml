@@ -29,3 +29,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{github.ref_name}}
+        allowUpdates: true
