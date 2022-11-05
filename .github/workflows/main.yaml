@@ -22,7 +22,11 @@ jobs:
       uses: devtomio/action-railway@v1.1.4
       with:
         railway_token: ${{ secrets.RAILWAY_TOKEN }}
-    - name: Release GitHub Actions
-      uses: Shobhit05/semver-release-branch@v6
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "release.tar.gz,foo/*.txt"
+        bodyFile: "body.md"
+        token: ${{ secrets.GITHUB_TOKEN }}
