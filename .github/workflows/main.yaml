@@ -22,8 +22,8 @@ jobs:
       uses: devtomio/action-railway@v1.1.4
       with:
         railway_token: ${{ secrets.RAILWAY_TOKEN }}
-    - name: Checkout
-      uses: actions/checkout@v2
+    - name: Checkout the branch
+      uses: actions/checkout@v3
     - name: Release
       uses: ncipollo/release-action@v1
       with:
