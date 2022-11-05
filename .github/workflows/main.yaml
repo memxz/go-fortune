@@ -23,7 +23,7 @@ jobs:
       with:
         railway_token: ${{ secrets.RAILWAY_TOKEN }}
     - name: Release GitHub Actions
-      uses: planet-code/release-tag-action@1.1.0
+      uses: planet-code/release-tag-action@1.0.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         release-branch-format: "v[0-9]+.[0-9]+"
