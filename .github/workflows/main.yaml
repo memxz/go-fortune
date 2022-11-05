@@ -16,6 +16,8 @@ jobs:
 
     # list of steps to perform task
     steps: 
+    - name: Echo Date
+      run: echo "The current time and date in Github is $(date)"
     - name: Deploy to Railway
       uses: devtomio/action-railway@v1.1.4
       with:
