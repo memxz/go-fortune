@@ -26,5 +26,5 @@ jobs:
       uses: planet-code/release-tag-action@1.1.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        release-branch-format: "release\/"
+        release-branch-format: "v[0-9]+.[0-9]+"
         show-changelog: true
