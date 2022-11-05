@@ -23,6 +23,4 @@ jobs:
       with:
         railway_token: ${{ secrets.RAILWAY_TOKEN }}
     - name: Release GitHub Actions
-      uses: bervProject/railway-deploy@main
-      with:
-        railway_token: ${{ secrets.RAILWAY_TOKEN }}
+      uses: technote-space/release-github-actions@v6
