@@ -36,8 +36,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{github.ref_name}}
         allowUpdates: true
-    - name: ehco information about the context
-      run: echo "Deployed to- ${{secrets.DEPLOY_URL_SECRET}},Git URL to the repository - ${{github.repositoryUrl}}"
     - name: Send custom JSON data to Slack workflow
       id: slack
       uses: slackapi/slack-github-action@v1.23.0
