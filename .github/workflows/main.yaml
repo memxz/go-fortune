@@ -38,5 +38,5 @@ jobs:
         tag: ${{github.ref_name}}
         allowUpdates: true
     - name: ehco information about the context
-      run: echo "Deployed to- ${{steps.release.outputs.html_url}},Git URL to the repository - ${{github.repositoryUrl}}"
+      run: echo "Deployed to- ${{steps.release.outputs.upload_url}},Git URL to the repository - ${{github.repositoryUrl}}"
     
