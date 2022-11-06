@@ -36,3 +36,16 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{github.ref_name}}
         allowUpdates: true
+    - name: ehco information about the context
+      run: echo "Git URL to the repository - ${{github.repositoryUrl}}"
+    - name: Get deployment URL
+      id: deployment
+      uses: dorshinar/get-deployment-url@master
+      timeout-minutes: 5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Run end-to-end tests
+      run: npm run test:e2e
+      env:
+        deployment: ${{ steps.deployment.outputs.deployment }}
