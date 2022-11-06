@@ -32,11 +32,10 @@ jobs:
         RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
     - name: Release
       uses: ncipollo/release-action@v1
-      id: release
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{github.ref_name}}
         allowUpdates: true
     - name: ehco information about the context
-      run: echo "Deployed to- ${{steps.release.outputs.upload_url}},Git URL to the repository - ${{github.repositoryUrl}}"
+      run: echo "Deployed to- ${{RAILWAY_STATIC_URL}},Git URL to the repository - ${{github.repositoryUrl}}"
     
