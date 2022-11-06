@@ -37,11 +37,10 @@ jobs:
         tag: ${{github.ref_name}}
         allowUpdates: true
     - name: Deploy URL
-      uses: SFDigitalServices/wait-for-deployment-action@v1
+      uses: wbeuil/wait-for-deployment@v1.0.0
       id: deployment
       with:
-        token: ${{ github.token }}
-        environment: Preview
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: ehco information about the context
       run: echo "Deployed to- ${{ steps.deployment.outputs.url }},Git URL to the repository - ${{github.repositoryUrl}}"
     
