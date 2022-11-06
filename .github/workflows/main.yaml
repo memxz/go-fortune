@@ -36,9 +36,11 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{github.ref_name}}
         allowUpdates: true
+    - name: railway login
+      run: railway login
     - name: Get Deploy URL
       id: getDeployUrl
-      run: railway variables get static_url 
+      run: echo "deploy_url=$(railway variables get static_url)" 
     - name: ehco information about the context
       run: echo "Deployed to- ${{steps.getDeployUrl.outputs.deploy_url}},Git URL to the repository - ${{github.repositoryUrl}}"
     
