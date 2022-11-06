@@ -38,7 +38,7 @@ jobs:
         allowUpdates: true
     - name: Get Deploy URL
       id: getDeployUrl
-      run: echo "deploy_url=$(railway variables get static_url)" >> $GITHUB_OUTPUT
+      run: echo "deploy_url=$(railway variables get static_url)" 
     - name: ehco information about the context
       run: echo "Deployed to- ${{steps.getDeployUrl.outputs.deploy_url}},Git URL to the repository - ${{github.repositoryUrl}}"
     
