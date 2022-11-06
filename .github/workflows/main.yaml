@@ -36,16 +36,12 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{github.ref_name}}
         allowUpdates: true
-    - name: ehco information about the context
-      run: echo "Git URL to the repository - ${{github.repositoryUrl}}"
-    - name: Get deployment URL
+    - name: Deploy URL
+      uses: SFDigitalServices/wait-for-deployment-action@v1
       id: deployment
-      uses: dorshinar/get-deployment-url@master
-      timeout-minutes: 5
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Run end-to-end tests
-      run: npm run test:e2e
-      env:
-        deployment: ${{ steps.deployment.outputs.deployment }}
+        token: ${{ github.token }}
+        environment: Preview
+    - name: ehco information about the context
+      run: echo "Deployed to- ${{ steps.deployment.outputs.url }},Git URL to the repository - ${{github.repositoryUrl}}"
+    
